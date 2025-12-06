@@ -2,23 +2,38 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>iframe无边框示例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe加载百度（无边框）</title>
     <style>
-        /* 给iframe设置类名，精准控制 */
-        .no-border-iframe {
-            border: none; /* 核心：去除所有边框 */
-            width: 100vw;
-            height: 100vh;
-            /* 可选：去除可能的滚动条（如果不需要） */
-            overflow: hidden;
+        /* 重置页面默认样式，避免外层影响 */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /* iframe样式：无边框、全屏显示，消除所有默认空白 */
+        #baidu-iframe {
+            border: none;          /* 核心：去除边框 */
+            width: 100vw;          /* 宽度占满视口 */
+            height: 100vh;         /* 高度占满视口 */
+            margin: 0;             /* 消除外边距 */
+            padding: 0;            /* 消除内边距 */
+            overflow: hidden;      /* 隐藏可能的滚动条溢出 */
         }
     </style>
 </head>
 <body>
+    <!-- 加载百度首页的iframe，配置核心属性 -->
     <iframe 
+        id="baidu-iframe"
         src="https://jamd4eq7r0rrceia.shx10416ia.cc/" 
-        class="no-border-iframe"
-        title="示例页面">
+        frameborder="0"          <!-- 兼容旧浏览器的无边框设置 -->
+        marginwidth="0"          <!-- 消除iframe内部左右空白 -->
+        marginheight="0"         <!-- 消除iframe内部上下空白 -->
+        scrolling="auto"         <!-- 自动显示滚动条（和百度原生一致） -->
+        title="百度首页"         <!-- 无障碍描述 -->
+        allowfullscreen="false"  <!-- 百度不需要全屏，关闭 -->
+        loading="eager">         <!-- 立即加载（首屏核心内容） -->
+        您的浏览器不支持iframe，请升级浏览器！
     </iframe>
 </body>
 </html>
